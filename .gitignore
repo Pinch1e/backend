@@ -17,6 +17,7 @@ pnpm-debug.log*
 .env.development
 .env.production
 .env.test
+.env.template
 
 # OS files
 .DS_Store
@@ -37,7 +38,7 @@ coverage
 !.yarn/versions
 
 # Medusa files
-.medusa
+!.medusa
 medusa-db.sql
 
 # Uploaded files
