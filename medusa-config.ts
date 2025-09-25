@@ -11,6 +11,11 @@ module.exports = defineConfig({
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
+    },
+    admin: {
+      path: "./admin",       // <-- point to your admin folder
+      serve: true,              // <-- serve the admin from backend if needed
+      port: 7000                // <-- explicitly tell Medusa the admin runs here
     }
   }
 })
