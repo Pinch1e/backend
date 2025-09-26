@@ -50,3 +50,6 @@ tsconfig.tsbuildinfo
 # Include source folder
 !src/**
 
+# Ignore built server public files
+src/Server/public/
+
