@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "dev": "medusa develop",
-    "build": "medusa build --no-admin",
+    "build": "medusa build",
     "start": "medusa start",
     "migrate": "medusa migrations run",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
