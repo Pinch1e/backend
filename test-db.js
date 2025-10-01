@@ -1,24 +1,23 @@
 const { Client } = require("pg");
+const fs = require("fs");
+const path = require("path");
 require("dotenv").config();
-const { parse } = require("pg-connection-string");
 
-const config = parse(process.env.DATABASE_URL);
+const caPath = path.join(__dirname, "certs", "prod-ca-2021.crt");
 
 const client = new Client({
-  host: config.host,
-  port: config.port,
-  user: config.user,
-  password: config.password,
-  database: config.database,
-  ssl: { rejectUnauthorized: false }, // <--- this fixes self-signed cert
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: true,
+    ca: fs.readFileSync(caPath).toString(),
+  },
 });
 
 client.connect()
   .then(() => {
     console.log("✅ Database connection successful!");
-    return client.end();
+    client.end();
   })
   .catch((err) => {
-    console.error("❌ Database connection failed:");
-    console.error(err);
+    console.error("❌ Database connection failed:", err);
   });
