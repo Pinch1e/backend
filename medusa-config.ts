@@ -1,6 +1,4 @@
 require("dotenv").config();
-const fs = require("fs");
-const path = require("path");
 
 const config = {
   projectConfig: {
@@ -13,8 +11,7 @@ const config = {
     auth_cors: process.env.AUTH_CORS,
     database_driver_options: {
       ssl: {
-        ca: fs.readFileSync(path.join(__dirname, "certs", "prod-ca-2021.crt")).toString(),
-        rejectUnauthorized: true,
+        rejectUnauthorized: false, // Accept RDS SSL
       },
     },
     serve: {
