@@ -9,11 +9,8 @@ const config = {
     store_cors: process.env.STORE_CORS,
     admin_cors: process.env.ADMIN_CORS,
     auth_cors: process.env.AUTH_CORS,
-    database_driver_options: {
-      ssl: {
-        rejectUnauthorized: false, // Accept RDS SSL
-      },
-    },
+    // Remove SSL first — we'll re-enable if needed
+    database_driver_options: {},
     serve: {
       admin: false,
     },
