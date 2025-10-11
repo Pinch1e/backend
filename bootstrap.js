@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 require("dotenv").config();
 
+// Set NODE_ENV to development if not set
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 // ---------- DEBUG (step 1) ----------
 console.log("DEBUG: process.env.DATABASE_URL ===>", process.env.DATABASE_URL);
 console.log("DEBUG: typeof process.env.DATABASE_URL ===>", typeof process.env.DATABASE_URL);
